@@ -1,0 +1,27 @@
+current directory: /Users/georgeferreira/src/yata/vendor/bundle/ruby/3.3.0/gems/rbs-3.8.1/ext/rbs_extension
+/opt/rubies/3.3.5/bin/ruby extconf.rb
+checking for whether -std=gnu99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /Users/georgeferreira/src/yata/vendor/bundle/ruby/3.3.0/gems/rbs-3.8.1/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20250130-40838-cjsz3z sitelibdir\=./.gem.20250130-40838-cjsz3z clean
+
+current directory: /Users/georgeferreira/src/yata/vendor/bundle/ruby/3.3.0/gems/rbs-3.8.1/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20250130-40838-cjsz3z sitelibdir\=./.gem.20250130-40838-cjsz3z
+compiling ./../../src/constants.c
+compiling ./../../src/ruby_objs.c
+compiling lexer.c
+compiling lexstate.c
+compiling location.c
+compiling main.c
+compiling parser.c
+compiling parserstate.c
+compiling unescape.c
+linking shared-object rbs_extension.bundle
+
+current directory: /Users/georgeferreira/src/yata/vendor/bundle/ruby/3.3.0/gems/rbs-3.8.1/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20250130-40838-cjsz3z sitelibdir\=./.gem.20250130-40838-cjsz3z install
+/usr/bin/install -c -m 0755 rbs_extension.bundle ./.gem.20250130-40838-cjsz3z
+
+current directory: /Users/georgeferreira/src/yata/vendor/bundle/ruby/3.3.0/gems/rbs-3.8.1/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20250130-40838-cjsz3z sitelibdir\=./.gem.20250130-40838-cjsz3z clean
