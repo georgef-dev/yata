@@ -396,7 +396,6 @@ DEPENDENCIES
   solid_queue
   sqlite3 (>= 2.1)
   tailwindcss-rails (~> 3.3)
-  tailwindcss-ruby (~> 4.0)
   thruster
   tzinfo-data
   vite_rails
