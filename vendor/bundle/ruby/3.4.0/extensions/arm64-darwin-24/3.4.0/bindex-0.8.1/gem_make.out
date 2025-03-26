@@ -1,0 +1,18 @@
+current directory: /Users/georgeferreira/src/github.com/georgef-dev/yata/vendor/bundle/ruby/3.4.0/gems/bindex-0.8.1/ext/skiptrace
+/opt/homebrew/opt/ruby/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/georgeferreira/src/github.com/georgef-dev/yata/vendor/bundle/ruby/3.4.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20250326-51794-mct71k sitelibdir\=./.gem.20250326-51794-mct71k clean
+
+current directory: /Users/georgeferreira/src/github.com/georgef-dev/yata/vendor/bundle/ruby/3.4.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20250326-51794-mct71k sitelibdir\=./.gem.20250326-51794-mct71k
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/georgeferreira/src/github.com/georgef-dev/yata/vendor/bundle/ruby/3.4.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20250326-51794-mct71k sitelibdir\=./.gem.20250326-51794-mct71k install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20250326-51794-mct71k/skiptrace/internal
+
+current directory: /Users/georgeferreira/src/github.com/georgef-dev/yata/vendor/bundle/ruby/3.4.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20250326-51794-mct71k sitelibdir\=./.gem.20250326-51794-mct71k clean
