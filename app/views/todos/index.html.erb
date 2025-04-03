@@ -1,0 +1,121 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+  <!-- Navigation -->
+  <nav class="container mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <%= link_to root_path, class: "text-slate-800 text-2xl font-bold hover:text-slate-700 transition duration-300" do %>
+          yata
+        <% end %>
+      </div>
+      <div>
+        <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-800 transition duration-300" %>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-6 py-8">
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-white rounded-xl shadow-lg">
+        <!-- Todo Form -->
+        <div class="p-6 border-b border-slate-100">
+          <%= form_with(model: Todo.new, class: "space-y-4") do |f| %>
+            <div class="flex gap-4">
+              <%= f.text_field :title, 
+                  class: "flex-1 px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-500",
+                  placeholder: "Get Shit Done!",
+                  autocomplete: "off" %>
+            </div>
+
+            <div class="flex gap-4">
+              <%= f.text_field :label, 
+                  class: "flex-1 px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-500",
+                  placeholder: "Labels are your friends",
+                  autocomplete: "off" %>
+                  
+              <div class="relative flex-1" data-controller="select">
+                <%= f.select :priority,
+                    [
+                      ["How important is this?", ""],
+                      ["Low", "low"],
+                      ["Medium", "medium"],
+                      ["High", "high"]
+                    ],
+                    {},
+                    { class: "appearance-none w-full pl-10 pr-8 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-500 bg-white cursor-pointer" ,
+                      data: {
+                        select_target: "select",
+                        action: "change->select#change"
+                      }
+                      } %>
+                
+                <!-- Priority Icon -->
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <svg class="h-5 w-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+
+                <!-- Custom Arrow -->
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                  <svg class="h-4 w-4 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-end">
+              <%= f.submit "Add Todo", 
+                  class: "px-6 py-2.5 text-sm font-medium text-white bg-slate-800 rounded-lg hover:bg-slate-700 transition duration-300" %>
+            </div>
+          <% end %>
+        </div>
+
+        <!-- Todo List -->
+        <div class="divide-y divide-slate-100">
+
+          <% if @todos.nil? %>
+            <div class="px-6 py-8 text-center text-slate-500">
+              No todos yet. Add one above!
+            </div>
+          <% else %>
+          <% @todos.each do |todo| %>
+            <div class="flex items-center px-6 py-4 group hover:bg-slate-50">
+              <%= form_with(model: todo, class: "flex-1 flex items-center") do |f| %>
+                <%= f.check_box :completed, 
+                    class: "w-5 h-5 text-slate-800 rounded border-gray-300",
+                    onchange: 'this.form.submit();' %>
+                <%= f.hidden_field :title %>
+                <%= f.hidden_field :label %>
+                <%= f.hidden_field :priority %>
+                <span class="ml-3 text-slate-800 <%= todo.completed? ? 'line-through text-slate-500' : '' %>">
+                  <%= todo.title %>
+                </span>
+              <% end %>
+              
+              <%= button_to todo_path(todo), 
+                  method: :delete,
+                  class: "opacity-0 group-hover:opacity-100 ml-2 text-slate-400 hover:text-red-500 transition duration-300" do %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              <% end %>
+            </div>
+          <% end %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800 text-white py-8 mt-auto">
+    <div class="container mx-auto px-6">
+      <div class="text-center text-slate-400">
+        <p>&copy; <%= Date.current.year %> yata. Keep it simple.</p>
+      </div>
+    </div>
+  </footer>
+</div>

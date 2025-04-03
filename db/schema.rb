@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_29_033107) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_03_031659) do
+  create_table "todos", force: :cascade do |t|
+    t.string "title"
+    t.string "label"
+    t.integer "priority"
+    t.datetime "due_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "completed"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
