@@ -410,6 +410,9 @@ DEPENDENCIES
   rails (~> 8.0.2)
   rbs
   rbs_rails
+  rubocop
+  rubocop-performance
+  rubocop-rails
   rubocop-rails-omakase
   selenium-webdriver
   solid_cable

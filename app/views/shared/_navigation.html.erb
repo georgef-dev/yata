@@ -1,0 +1,12 @@
+<nav class="container mx-auto px-6 py-4">
+  <div class="flex items-center justify-between">
+    <div class="flex items-center">
+      <%= link_to root_path, class: "text-slate-800 text-2xl font-bold hover:text-slate-700 transition duration-300" do %>
+        yata
+      <% end %>
+    </div>
+    <div>
+      <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-800 transition duration-300" %>
+    </div>
+  </div>
+</nav>
